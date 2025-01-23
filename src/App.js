@@ -18,7 +18,7 @@ function App() {
   const colors = [
     { r: 32, g: 247, b: 0 }, // Bright Neon Green
     { r: 3, g: 252, b: 100 }, // Bright Neon Blue
-    {r : 28, g : 255, b : 198},
+    { r: 28, g: 255, b: 198 },
     { r: 28, g: 81, b: 255 }, // Bright Neon Purple
     { r: 85, g: 28, b: 255 },
   ];
@@ -26,22 +26,20 @@ function App() {
   useEffect(() => {
     setCount((prev) => {
       const newCount = (prev + 1) % 6; // Increment count and reset after 5
-      if(newCount === 5 && nextColor === 1){
+      if (newCount === 5 && nextColor === 1) {
         setCurColor(2)
         setNextColor(2)
-        return newCount
       }
       if (newCount === 0) {
-        // Update `curColor` to the current `nextColor`
-        if(nextColor === 4){
+        if (nextColor === colors.length - 1) {
           setCurColor(0)
           setNextColor(0)
-          return newCount
-        }
-        setCurColor(nextColor);
+        } else {
+          setCurColor(nextColor);
 
-        // Update `nextColor` to the next in the sequence
-        setNextColor((nextColor + 1) % colors.length);
+          setNextColor((nextColor + 1) % colors.length);
+        }
+
       }
       return newCount;
     });
@@ -80,10 +78,10 @@ function App() {
       setActiveIndex((prev) => {
         if (prev === columns - 1 && direction === 1) {
           setDirection(-1);
-          return prev ;
+          return prev;
         } else if (prev === 0 && direction === -1) {
           setDirection(1);
-          return prev ;
+          return prev;
         }
         return prev + direction;
       });
