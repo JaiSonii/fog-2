@@ -10,7 +10,7 @@ function App() {
   const [paused, setPaused] = useState(false);
   const [colorDirection, setColorDirection] = useState(1);
   const [curColor, setCurColor] = useState(0);
-  const [nextColor, setNextColor] = useState(1);
+  const [nextColor, setNextColor] = useState(0);
   const [count, setCount] = useState(0);
   const [speed, setSpeed] = useState(100);
 
